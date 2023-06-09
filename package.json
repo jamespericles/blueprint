@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.6.8",
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.12",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -18,12 +19,12 @@
     "graphql": "^16.5.0",
     "graphql-tools": "^8.2.12",
     "nodemon": "^2.0.16",
+    "prettier-eslint": "^15.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.0",
-    "@babel/plugin-proposal-private-property-in-object": "^7.16.12"
+    "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
+    "prettier": "2.8.8",
     "typescript": "^5.1.3"
   }
 }

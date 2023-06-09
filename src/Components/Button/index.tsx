@@ -1,13 +1,13 @@
-import { Button as AntdButton } from 'antd'
-import React from 'react'
+import { Button as AntdButton } from 'antd';
+import React from 'react';
 
 interface Props {
-  disabled?: boolean
-  onClick?: () => void
-  children?: React.ReactNode
-  icon?: React.ReactNode
-  type?: 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default'
-  htmlType?: 'submit'
+  disabled?: boolean;
+  onClick?: () => void;
+  children?: React.ReactNode;
+  icon?: React.ReactNode;
+  type?: 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default';
+  htmlType?: 'submit';
 }
 
 const Button: React.FunctionComponent<Props> = ({
@@ -37,7 +37,7 @@ const Button: React.FunctionComponent<Props> = ({
       onClick={onClick}>
       {children}
     </AntdButton>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

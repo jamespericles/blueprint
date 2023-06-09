@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { Row } from 'antd'
-import Title from '../Title'
-import Card from '../Card'
+import * as React from 'react';
+import { Row } from 'antd';
+import Title from '../Title';
+import Card from '../Card';
 
 interface TitleCardProps {
-  fullName: string
-  disorder: string
+  fullName: string;
+  disorder: string;
 }
 
 const TitleCard = ({ fullName, disorder }: TitleCardProps) => {
@@ -34,7 +34,7 @@ const TitleCard = ({ fullName, disorder }: TitleCardProps) => {
         </p>
       </Row>
     </Card>
-  )
-}
+  );
+};
 
-export default TitleCard
+export default TitleCard;

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Form, Row, Col, Radio } from 'antd'
+import React, { useState } from 'react';
+import { Form, Row, Col, Radio } from 'antd';
 import {
   Title,
   Card,
@@ -7,26 +7,27 @@ import {
   ProgressBar,
   TitleCard,
   BottomCard,
-} from '../index'
-import { useQuery } from '@apollo/client'
-import getScreener from '../../ApolloClient/Queries/getScreener'
+} from '../index';
+import { useQuery } from '@apollo/client';
+import getScreener from '../../ApolloClient/Queries/getScreener';
 
 interface Answer {
-  [key: string]: string
+  [key: string]: string;
 }
 
 interface Question {
-  title: string
+  title: string;
 }
 
 const ScreenerForm = () => {
-  const { data } = useQuery(getScreener)
-  const [activeQuestion, setActiveQuestion] = useState<number>(0)
-  const [answers, setAnswers] = useState<Answer>({})
-  const questionLength = data?.screener?.content?.sections[0]?.questions?.length
-  const [form] = Form.useForm()
+  const { data } = useQuery(getScreener);
+  const [activeQuestion, setActiveQuestion] = useState<number>(0);
+  const [answers, setAnswers] = useState<Answer>({});
+  const questionLength =
+    data?.screener?.content?.sections[0]?.questions?.length;
+  const [form] = Form.useForm();
 
-  const isSubmitDisabled = Object.keys(answers).length !== questionLength
+  const isSubmitDisabled = Object.keys(answers).length !== questionLength;
 
   const idMap: { [key: string]: string } = {
     question0: 'question_a',
@@ -37,17 +38,17 @@ const ScreenerForm = () => {
     question5: 'question_f',
     question6: 'question_g',
     question7: 'question_h',
-  }
+  };
 
-  const appendID = (key: string) => idMap[key]
+  const appendID = (key: string) => idMap[key];
 
   const handleFinish = () => {
     const formattedAnswers = Object.entries(answers).map(([key, value]) => ({
       value,
       question_id: appendID(key),
-    }))
-    console.log(formattedAnswers)
-  }
+    }));
+    console.log(formattedAnswers);
+  };
 
   return (
     <>
@@ -67,7 +68,7 @@ const ScreenerForm = () => {
           <Title>
             {data?.screener?.content.sections[0]?.questions[0]?.title}
           </Title>
-          <Row justify='space-between'>
+          <Row justify="space-between">
             <Form.Item
               name={`question0`}
               label={
@@ -85,18 +86,18 @@ const ScreenerForm = () => {
               <Radio.Group
                 name={`question0`}
                 style={{ color: '#fff', padding: '10px', margin: '10px' }}
-                onChange={(e) => {
-                  setAnswers({ ...answers, question0: e.target.value })
+                onChange={e => {
+                  setAnswers({ ...answers, question0: e.target.value });
                   setTimeout(() => {
-                    setActiveQuestion(activeQuestion + 1)
-                  }, 500)
+                    setActiveQuestion(activeQuestion + 1);
+                  }, 500);
                 }}>
                 {data?.screener?.content?.sections[0]?.answers.map(
                   (answer: Answer) => (
                     <Col key={answer.value}>
                       <Radio value={answer.value}>{answer.title}</Radio>
                     </Col>
-                  )
+                  ),
                 )}
               </Radio.Group>
             </Form.Item>
@@ -112,7 +113,7 @@ const ScreenerForm = () => {
               // eslint-disable-next-line
               {...(null as any)}>
               <Title>{question.title}</Title>
-              <Row justify='space-between'>
+              <Row justify="space-between">
                 <Form.Item
                   name={`question${i + 1}`}
                   label={
@@ -131,26 +132,26 @@ const ScreenerForm = () => {
                   <Radio.Group
                     name={`question${i + 1}`}
                     style={{ color: '#fff', padding: '10px', margin: '10px' }}
-                    onChange={(e) => {
+                    onChange={e => {
                       setAnswers({
                         ...answers,
                         [`question${i + 1}`]: e.target.value,
-                      })
+                      });
                       setTimeout(() => {
                         if (
                           activeQuestion < questionLength + 1 &&
                           activeQuestion !== questionLength - 1
                         ) {
-                          setActiveQuestion(activeQuestion + 1)
+                          setActiveQuestion(activeQuestion + 1);
                         }
-                      }, 500)
+                      }, 500);
                     }}>
                     {data?.screener?.content?.sections[0]?.answers.map(
                       (answer: Answer) => (
                         <Col key={answer.value}>
                           <Radio value={answer.value}>{answer.title}</Radio>
                         </Col>
-                      )
+                      ),
                     )}
                   </Radio.Group>
                 </Form.Item>
@@ -168,7 +169,7 @@ const ScreenerForm = () => {
                 htmlType={'submit'}
                 disabled={isSubmitDisabled}
                 onClick={() => {
-                  handleFinish()
+                  handleFinish();
                 }}>
                 Submit
               </Button>
@@ -177,7 +178,7 @@ const ScreenerForm = () => {
         />
       </Form>
     </>
-  )
-}
+  );
+};
 
-export default ScreenerForm
+export default ScreenerForm;

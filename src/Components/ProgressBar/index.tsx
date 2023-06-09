@@ -1,7 +1,7 @@
-import * as React from 'react'
+import * as React from 'react';
 
 interface ProgressBarProps {
-  completed: number
+  completed: number;
 }
 
 const ProgressBar = ({ completed }: ProgressBarProps) => {
@@ -15,7 +15,7 @@ const ProgressBar = ({ completed }: ProgressBarProps) => {
     position: 'sticky' as 'sticky' | undefined,
     top: 10,
     zIndex: 999,
-  }
+  };
 
   const fillerStyles = {
     height: '100%',
@@ -24,13 +24,13 @@ const ProgressBar = ({ completed }: ProgressBarProps) => {
     borderRadius: 'inherit',
     position: 'sticky' as 'sticky' | undefined,
     transition: 'width 500ms ease-in-out',
-  }
+  };
 
   return (
     <div style={containerStyles}>
       <div style={fillerStyles}></div>
     </div>
-  )
-}
+  );
+};
 
-export default ProgressBar
+export default ProgressBar;

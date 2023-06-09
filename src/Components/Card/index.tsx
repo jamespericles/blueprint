@@ -1,34 +1,34 @@
-import React, { ReactNode } from 'react'
-import styled from 'styled-components'
+import React, { ReactNode } from 'react';
+import styled from 'styled-components';
 
 interface Tab {
-  id: string
-  label: string
+  id: string;
+  label: string;
 }
 
 interface CardProps {
-  tabs?: Tab[]
-  activeTabId?: string
-  activeTabChanged?: (tabId: string) => void
-  sideText?: string
-  children?: ReactNode
-  alternate?: boolean
-  minHeight?: string
-  noMargin?: boolean
-  padding?: string
-  style?: object
+  tabs?: Tab[];
+  activeTabId?: string;
+  activeTabChanged?: (tabId: string) => void;
+  sideText?: string;
+  children?: ReactNode;
+  alternate?: boolean;
+  minHeight?: string;
+  noMargin?: boolean;
+  padding?: string;
+  style?: object;
 }
 
 const CardOuter = styled.div`
   margin-bottom: 10px;
   position: relative;
-`
+`;
 
 interface CardContainerProps extends CardProps {
-  sideText?: string
-  alternate?: boolean
-  minHeight?: string
-  padding?: string
+  sideText?: string;
+  alternate?: boolean;
+  minHeight?: string;
+  padding?: string;
 }
 
 const CardContainer = styled.div<CardContainerProps>`
@@ -39,7 +39,7 @@ const CardContainer = styled.div<CardContainerProps>`
   margin-right: 25%;
   margin-bottom: 25px;
   padding: 10px;
-`
+`;
 
 const Card: React.FC<CardProps> = ({
   tabs,
@@ -64,7 +64,7 @@ const Card: React.FC<CardProps> = ({
         {children}
       </CardContainer>
     </CardOuter>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

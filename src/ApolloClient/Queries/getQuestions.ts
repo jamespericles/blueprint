@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from '@apollo/client';
 
 const getQuestions = gql`
   {
@@ -7,6 +7,6 @@ const getQuestions = gql`
       title
     }
   }
-`
+`;
 
-export default getQuestions
+export default getQuestions;

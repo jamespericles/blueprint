@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { ScreenerForm } from './Components'
+import * as React from 'react';
+import { ScreenerForm } from './Components';
 
 const App = () => {
-  return <ScreenerForm></ScreenerForm>
-}
+  return <ScreenerForm></ScreenerForm>;
+};
 
-export default App
+export default App;

@@ -1,13 +1,13 @@
-import * as React from 'react'
-import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons'
-import Button from '../Button'
-import Card from '../Card'
+import * as React from 'react';
+import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
+import Button from '../Button';
+import Card from '../Card';
 
 interface BottomCardProps {
-  activeQuestion: number
-  setActiveQuestion: (arg0: number) => void
-  questionLength: number
-  submitButton: JSX.Element
+  activeQuestion: number;
+  setActiveQuestion: (arg0: number) => void;
+  questionLength: number;
+  submitButton: JSX.Element;
 }
 
 const BottomCard = ({
@@ -22,9 +22,9 @@ const BottomCard = ({
         ? activeQuestion - 1
         : direction === 'right'
         ? activeQuestion + 1
-        : activeQuestion
-    )
-  }
+        : activeQuestion,
+    );
+  };
 
   return (
     <Card>
@@ -42,7 +42,7 @@ const BottomCard = ({
         />
       </div>
     </Card>
-  )
-}
+  );
+};
 
-export default BottomCard
+export default BottomCard;
