@@ -1,5 +1,9 @@
 # Blueprint
 
+## Foreword
+
+Hello again! I'm very excited to be in this position again, with another chance to show off my skills. I left the majority of this README the same as it was in my previous submission, with the exception of fleshing out the [Deployment](#deployment) section a bit more.
+
 ## Getting Started
 
 In order to get the project working locally, you'll first need to run `yarn` to install all necessary packages. Then execute `yarn start` to spin up the frontend on port `3000`. Lastly, open a second terminal and run `yarn server` to spin up the backend on port `4000`.
@@ -108,15 +112,22 @@ If I had more time, I would have also loved to have built this using TypeScript 
 
 ## Deployment
 
-I've deployed several projects in the past, mostly using Heroku, so I'm not unfamiliar with the process though it has been a while. At my current job, I don't work very much with our deployment process besides the occasional release cut from GitHub. In the past I've deployed through Docker and learned how to manage different containers, but again this isn't exactly my forte.
+Describe how you would deploy this as a true production app on the platform of your choice:
 
-First, regarding security, the most important things to do would be to connect the application to a private database, serializing any personal information as to not violate HIPAA, and create a log in solution before being able to access the screener.
+- How would you ensure the application is highly available and performs well?
 
-Again, my understanding of DevOps and handling deployment is fairly limited, but given how simple and lightweight this project is, it would likely take quite a high user count before we would need to consider adding more machines or clusters to host this project.
+  - I would use a close-based hosting provider. Cloud-based hosting providers such as AWS, Google Cloud, and Microsoft Azure off high availability and scalability of the box. They also provide tools for loading balancing, auto-scaling, and failover which can help ensure that the application is always available and performs well.
 
-## Final Response
+  I'd also consider the use of a CDN to help with performance. A CDN can help with performance by caching static assets and serving them from a location closer to the user. This can help reduce latency and improve performance.
 
-I'd like to thank you guys for being so understanding and giving me some more time on this. I'm much happier with how this turned out. While I'm satisfied with how the code looks, I'm not totally satisfied with how it looks stylistically, so I'm going to email some screenshots from work to Alana and Roger as the code itself is within a private repository. Thank you again and happy fourth!
+  Beyond that, I'd consider database availability and tools that can help with that. I'd consider database replication, clustering, and sharding to help with availability and performance.
+
+- How would you secure it?
+
+  - There are numerous ways to ensure the application is secure in production. I'd start by ensuring that the application is served over HTTPS. This can be done by using a reverse proxy such as Nginx or Apache. I'd also consider using a Web Application Firewall (WAF) to help protect against common attacks such as SQL injection, cross-site scripting, and cross-site forgery.
+
+- What would you add to make it easier to troubleshoot problems while it is running live?
+  - I'd consider using a logging service such as Loggly or Papertrail to help with troubleshooting. I'd also consider using a monitoring service such as New Relic or Datadog to help with monitoring the application and alerting on issues. Beyond that, it'd be very important to have automated tests in place to try and prevent errors before they happen.
 
 ---
 
