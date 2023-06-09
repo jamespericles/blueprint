@@ -23,7 +23,7 @@ const ScreenerForm = () => {
   const { data } = useQuery(getScreener)
   const [activeQuestion, setActiveQuestion] = useState<number>(0)
   const [answers, setAnswers] = useState<Answer>({})
-  const questionLength = data.screener.content.sections[0].questions.length
+  const questionLength = data?.screener?.content?.sections[0]?.questions?.length
   const [form] = Form.useForm()
 
   const isSubmitDisabled = Object.keys(answers).length !== questionLength
@@ -51,10 +51,12 @@ const ScreenerForm = () => {
 
   return (
     <>
-      <ProgressBar completed={((activeQuestion + 1) / 8) * 100} />
+      <ProgressBar
+        completed={(Object.keys(answers).length / questionLength) * 100}
+      />
       <TitleCard
-        fullName={data.screener.full_name}
-        disorder={data.screener.disorder}
+        fullName={data?.screener?.full_name}
+        disorder={data?.screener?.disorder}
       />
       <Form form={form} onFinish={handleFinish}>
         <Card
@@ -62,7 +64,9 @@ const ScreenerForm = () => {
           // The following spread attribute with a value of null as any is a workaround to allow for the style prop to be passed down
           // eslint-disable-next-line
           {...(null as any)}>
-          <Title>{data.screener.content.sections[0].questions[0].title}</Title>
+          <Title>
+            {data?.screener?.content.sections[0]?.questions[0]?.title}
+          </Title>
           <Row justify='space-between'>
             <Form.Item
               name={`question0`}
@@ -87,7 +91,7 @@ const ScreenerForm = () => {
                     setActiveQuestion(activeQuestion + 1)
                   }, 500)
                 }}>
-                {data.screener.content.sections[0].answers.map(
+                {data?.screener?.content?.sections[0]?.answers.map(
                   (answer: Answer) => (
                     <Col key={answer.value}>
                       <Radio value={answer.value}>{answer.title}</Radio>
@@ -98,7 +102,7 @@ const ScreenerForm = () => {
             </Form.Item>
           </Row>
         </Card>
-        {data.screener.content.sections[0].questions
+        {data?.screener?.content?.sections[0]?.questions
           .slice(1)
           .map((question: Question, i: number) => (
             <Card
@@ -141,7 +145,7 @@ const ScreenerForm = () => {
                         }
                       }, 500)
                     }}>
-                    {data.screener.content.sections[0].answers.map(
+                    {data?.screener?.content?.sections[0]?.answers.map(
                       (answer: Answer) => (
                         <Col key={answer.value}>
                           <Radio value={answer.value}>{answer.title}</Radio>

@@ -5,8 +5,8 @@ const getQuestions = gql`
     questions {
       question_id
       title
-}}
+    }
+  }
 `
 
 export default getQuestions
-

@@ -16,6 +16,7 @@ interface CardProps {
   minHeight?: string
   noMargin?: boolean
   padding?: string
+  style?: object
 }
 
 const CardOuter = styled.div`
